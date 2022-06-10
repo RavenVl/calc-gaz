@@ -21,6 +21,8 @@ const calcItog=(state)=>{
     return sum
 }
 
+
+
 export const calcSlice = createSlice({
   name: 'calc',
   initialState: {
@@ -50,31 +52,26 @@ export const calcSlice = createSlice({
         state.sum = calcItog(state)
 
     },
+
     changeCilinder: (state, action) => {
+        const changeOborud = (cil)=>{
+            let strCil = `cil${cil}`
+            state.items.oborud = ITEMS.filter(item => item.group_id === 1 && item[strCil] === true);
+            state.state_init.oborud = state.items.oborud[0].price
+            state.sum = calcItog(state)
+            let rampa1 = ITEMS.filter(item => item.group_id === 4 && item[strCil] === true);
+            rampa1.unshift({group_id: 4, price: 0, id: 0, name: '------------', cil4: true, cil6: true, cil8: true});
+            state.items.rampa = rampa1;
+}
         state.items.cil = action.payload
         if(state.items.cil === '4'){
-            state.items.oborud = ITEMS.filter(item => item.group_id === 1 && item.cil4 === true);
-            state.state_init.oborud = state.items.oborud[0].price
-            state.sum = calcItog(state)
-            let rampa1 = ITEMS.filter(item => item.group_id === 4 && item.cil4 === true);
-            rampa1.unshift({group_id: 4, price: 0, id: 0, name: '------------', cil4: true, cil6: true, cil8: true});
-            state.items.rampa = rampa1;
+            changeOborud(state.items.cil)
         }
         else if (state.items.cil === '6'){
-            state.items.oborud = ITEMS.filter(item => item.group_id === 1 && item.cil6 === true);
-            state.state_init.oborud = state.items.oborud[0].price
-            state.sum = calcItog(state)
-             let rampa1 = ITEMS.filter(item => item.group_id === 4 && item.cil6 === true);
-            rampa1.unshift({group_id: 4, price: 0, id: 0, name: '------------', cil4: true, cil6: true, cil8: true});
-            state.items.rampa = rampa1;
+           changeOborud(state.items.cil)
         }
         else if (state.items.cil === '8'){
-            state.items.oborud = ITEMS.filter(item => item.group_id === 1 && item.cil8 === true);
-            state.state_init.oborud = state.items.oborud[0].price
-            state.sum = calcItog(state)
-            let rampa1 = ITEMS.filter(item => item.group_id === 4 && item.cil8 === true);
-            rampa1.unshift({group_id: 4, price: 0, id: 0, name: '------------', cil4: true, cil6: true, cil8: true});
-            state.items.rampa = rampa1;
+            changeOborud(state.items.cil)
         }
     },
 
