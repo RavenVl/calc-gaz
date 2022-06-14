@@ -20,27 +20,27 @@ export default function Calc() {
             <Cilinder />
             <DropDown
                 key={1}
-                items={{id: 1, name: 'oborud', caption:  "Оборудование"}}
+                item={{id: 1, name: 'oborud', caption:  "Оборудование"}}
 
             />
             <DropDown
                 key={2}
-                items={{id: 2, name: 'balon', caption: "Балон"}}
+                item={{id: 2, name: 'balon', caption: "Балон"}}
 
             />
             <DropDown
                 key={3}
-                items={{id: 3, name: 'reductor' ,caption: "Редуктор"}}
+                item={{id: 3, name: 'reductor' ,caption: "Редуктор"}}
 
             />
             <DropDown
                 key={4}
-                items={{id: 4, name: 'rampa',caption: "Рампа"}}
+                item={{id: 4, name: 'rampa',caption: "Рампа"}}
 
             />
             <DropDown
                 key={6}
-                items={{id: 6, name: 'plastic' ,caption: "Пластиковая трубка"}}
+                item={{id: 6, name: 'plastic' ,caption: "Пластиковая трубка"}}
             />
             <Vzu />
             <Itog txt={`Итого: ${sum}`}/>
